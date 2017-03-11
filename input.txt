@@ -1,0 +1,11 @@
+atm1A
+A11
+B11
+A100
+wrongpassword
+mypassword
+50
+25
+50
+15
+quit

@@ -1,0 +1,17 @@
+Enter you choice of ATM:
+atm1A
+Enter your card:
+A11
+This card is not in the System. Try Again.
+Enter your card:
+B11
+This card is not supported by this ATM. Try againEnter your card:
+A11
+This card is accepted. Please enter your password:
+wrongpassword
+This is a wrong password. Enter your password:
+mypassword
+Authorization is accepted. Start your transaction by entering the amount to withdraw.
+50
+This amount exceeds the maximum amount you can withdraw per transaction. Please enter the amount or quit.
+$15.0is withdrawn from  your account. Remaining balance for card number A100 : $10.0. If you have more transactions, enter the amount or quit.
