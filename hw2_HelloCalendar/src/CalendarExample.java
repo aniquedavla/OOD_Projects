@@ -1,22 +1,29 @@
 /**
  * Created by aniquedavla on 3/11/17.
  */
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
+import java.util.*;
+
+enum DAYS
+{
+    Sun, Mon, Tue, Wed, Thur, Fri, Sat ;
+}
+enum MONTHS
+{
+    Jan, Feb, March, Apr, May, June, July, Aug, Sep, Oct, Nov, Dec;
+}
+
 
 public class CalendarExample
 {
     private MONTHS[] arrayOfMonths;
     private DAYS[] arrayOfDays;
     private GregorianCalendar cal;
+    private HashMap<String, ArrayList<Event>> eventsOnDay = new HashMap<>();
+
     public CalendarExample(){
         cal = new GregorianCalendar(); // capture today
          arrayOfMonths = MONTHS.values();
          arrayOfDays = DAYS.values();
-    }
-    public CalendarExample(int year, int month, int day){
-
     }
 
     public void printDayView(){
@@ -82,4 +89,39 @@ public class CalendarExample
 
     }
 
+    public void addEventToMap(Event newEvent) {
+        ArrayList<Event> tempList;
+        String dateString = newEvent.getDate();
+        tempList = eventsOnDay.get(dateString);
+        if (tempList == null) {
+            tempList = new ArrayList<Event>();
+            tempList.add(newEvent);
+            eventsOnDay.put(dateString, tempList); //adds newly created list to the Map.
+        } else {
+            //ArrayList for the date exists, add to it
+            eventsOnDay.get(dateString).add(newEvent);
+        }
+    }
+    public void printEventsFromMap(String dateKey){
+//        if(hm.get(dateKey)==null){
+//            System.out.println("no event this day "+dateKey);
+//        }else {
+//            for (int i = 0; i < hm.get(dateKey).size(); i++) {
+//                MONTHS[] arrayOfMonths = MONTHS.values();
+//                DAYS[] arrayOfDays = DAYS.values();
+//                //to get the day name
+//                Calendar mycal = new GregorianCalendar(2017, hm.get(dateKey).get(i).getMm(),
+//                        hm.get(dateKey).get(i).getDd());
+//                System.out.println(arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] +", " +
+//                        arrayOfMonths[mycal.get(Calendar.MONTH)]+" "+
+//                        hm.get(dateKey).get(i).getDd()+", "+
+//                        hm.get(dateKey).get(i).getYyyy());
+//                System.out.print(    hm.get(dateKey).get(i).getTitle()+" "+
+//                        hm.get(dateKey).get(i).getStartingTimeHR() + ":" +
+//                        hm.get(dateKey).get(i).getStartingTimeMN() + " - " +
+//                        hm.get(dateKey).get(i).getEndingTimeHR() + ":" +
+//                        hm.get(dateKey).get(i).getEndingTimeMN() + " " + "\n");
+//            }
+//        }
+    }
 }

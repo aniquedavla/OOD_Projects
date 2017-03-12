@@ -17,10 +17,20 @@ public class MyCalendarTester {
                 case "V":
                     if(calendarConsole.viewChooser().equals("D")){
                         calendarConsole.getCurrentDateAndEvents();
+                        while(true){
+                            switch (calendarConsole.getPNMChooser()){
+                                case "P":
+                                case "N":
+                                case "M":break;
+                            }
+                        }
                     }else{
                         System.out.println("Month View Chosen");
                     }
                 case "C":
+                         Event newEvent = calendarConsole.eventSelection();
+                        calendarConsole.addEventToMap(newEvent);
+                        System.out.println(newEvent.getTitle());
                 case "G":
                 case "E":
                 case "D":
