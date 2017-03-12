@@ -14,6 +14,10 @@ public class Console {
         this.sampleCal = new CalendarExample();
         this.input = input;
     }
+
+    /**
+     * @return
+     */
     public String mainMenu(){
         System.out.println("");
         System.out.println("Select one of the following options:");
@@ -30,24 +34,46 @@ public class Console {
         }
     }
 
+    /**
+     * @return
+     */
     public String viewChooser() {
         System.out.println("[D]ay view or [M]view ?");
         return optionSelection("[D]ay view or [M]view ?");
     }
-    public String getCurrentDate(){
-        return sampleCal.currentDayString();
+
+    /**
+     * @return
+     */
+    public int[] getCurrentDateA(){
+        return sampleCal.currentDayArray();
     }
+
+    public String getArrayDateToString(int[] date) {
+        return sampleCal.getArrayDateToString(date);
+    }
+
+
+    /**
+     * @param date
+     */
     public void getCurrentDateAndEvents(String date) {
-        sampleCal.printDayView();
 //        String pattern = "DD/MM/YYYY";
 //        String dateInString  = new SimpleDateFormat(pattern).format(new Date());
         sampleCal.printEventsFromMap(date);
 
     }
+
+    /**
+     *
+     */
     public void printMainCalender(){
         sampleCal.printCalendar();
     }
 
+    /**
+     * @return
+     */
     public String createEventDialog() {
         return optionSelection("[C]reate");
     }
@@ -124,5 +150,18 @@ public class Console {
 
     public void printEventList() {
         sampleCal.printEventList();
+    }
+
+    public String deleteOption() {
+        System.out.println("[S]elected or [A]ll ?");
+        return optionSelection("[S]elected or [A]ll ?");
+    }
+
+    public void deleteSelectedEvent(String s) {
+        sampleCal.deletEventByKey(s);
+    }
+
+    public void deleteAllEvents() {
+        sampleCal.deletAll();
     }
 }
