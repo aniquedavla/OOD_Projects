@@ -25,6 +25,19 @@ public class CalendarExample
          arrayOfMonths = MONTHS.values();
          arrayOfDays = DAYS.values();
     }
+    public String currentDayString(){
+        int currentM = cal.get(Calendar.MONTH)+1;
+        int currentY = cal.get(Calendar.YEAR);
+        int currentD = cal.get(Calendar.DAY_OF_MONTH);
+        String currentMonth;
+        if(currentM<=10){
+            currentMonth = "0"+currentM;
+        }
+        else{
+            currentMonth = currentM +"";
+        }
+        return  currentD+"/"+currentMonth+"/"+currentY;
+    }
 
     public void printDayView(){
         int currentM = cal.get(Calendar.MONTH);
@@ -103,25 +116,50 @@ public class CalendarExample
         }
     }
     public void printEventsFromMap(String dateKey){
-//        if(hm.get(dateKey)==null){
-//            System.out.println("no event this day "+dateKey);
-//        }else {
-//            for (int i = 0; i < hm.get(dateKey).size(); i++) {
-//                MONTHS[] arrayOfMonths = MONTHS.values();
-//                DAYS[] arrayOfDays = DAYS.values();
-//                //to get the day name
-//                Calendar mycal = new GregorianCalendar(2017, hm.get(dateKey).get(i).getMm(),
-//                        hm.get(dateKey).get(i).getDd());
-//                System.out.println(arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] +", " +
-//                        arrayOfMonths[mycal.get(Calendar.MONTH)]+" "+
-//                        hm.get(dateKey).get(i).getDd()+", "+
-//                        hm.get(dateKey).get(i).getYyyy());
-//                System.out.print(    hm.get(dateKey).get(i).getTitle()+" "+
-//                        hm.get(dateKey).get(i).getStartingTimeHR() + ":" +
-//                        hm.get(dateKey).get(i).getStartingTimeMN() + " - " +
-//                        hm.get(dateKey).get(i).getEndingTimeHR() + ":" +
-//                        hm.get(dateKey).get(i).getEndingTimeMN() + " " + "\n");
-//            }
-//        }
+        if(eventsOnDay.get(dateKey)==null){
+            System.out.println("There are no events for this day: "+ dateKey);
+        }else {
+            for (int i = 0; i < eventsOnDay.get(dateKey).size(); i++) {
+                MONTHS[] arrayOfMonths = MONTHS.values();
+                DAYS[] arrayOfDays = DAYS.values();
+                //to get the day name
+                Calendar mycal = new GregorianCalendar(
+                        2017, eventsOnDay.get(dateKey).get(i).getMM(),eventsOnDay.get(dateKey).get(i).getDD());
+                System.out.println(
+                        arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] +", " +
+                        arrayOfMonths[mycal.get(Calendar.MONTH)]+" "+
+                        eventsOnDay.get(dateKey).get(i).getDD()+", "+
+                        eventsOnDay.get(dateKey).get(i).getYYYY());
+                System.out.println(currentDayString());
+                System.out.print(
+                        eventsOnDay.get(dateKey).get(i).getTitle()+" "+
+                        eventsOnDay.get(dateKey).get(i).getStartTimeHR() + ":" +
+                        eventsOnDay.get(dateKey).get(i).getStartTimeMN() + " - " +
+                        eventsOnDay.get(dateKey).get(i).getEndTimeHR() + ":" +
+                        eventsOnDay.get(dateKey).get(i).getEndTimeMN() + " " + "\n");
+            }
+        }
+    }
+
+    public void printEventList() {
+        for(String key: eventsOnDay.keySet()){
+            System.out.println(key);
+            for(int i=0;i< eventsOnDay.get(key).size();i++) {
+                MONTHS[] arrayOfMonths = MONTHS.values();
+                DAYS[] arrayOfDays = DAYS.values();
+                //to get the day name
+                Calendar mycal = new GregorianCalendar(2017, eventsOnDay.get(key).get(i).getMM(),
+                        eventsOnDay.get(key).get(i).getDD());
+                System.out.println(eventsOnDay.get(key).get(i).getYYYY());
+                System.out.print(arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] + " " +
+                        arrayOfMonths[eventsOnDay.get(key).get(i).getMM()] + " " +
+                        eventsOnDay.get(key).get(i).getDD() + " " +
+                        eventsOnDay.get(key).get(i).getStartTimeHR() + ":" +
+                        eventsOnDay.get(key).get(i).getStartTimeMN() + " - " +
+                        eventsOnDay.get(key).get(i).getEndTimeHR() + ":" +
+                        eventsOnDay.get(key).get(i).getEndTimeMN() + " " +
+                        eventsOnDay.get(key).get(i).getTitle()+"\n");
+            }
+        }
     }
 }

@@ -34,16 +34,14 @@ public class Console {
         System.out.println("[D]ay view or [M]view ?");
         return optionSelection("[D]ay view or [M]view ?");
     }
-
-    public void getCurrentDateAndEvents() {
+    public String getCurrentDate(){
+        return sampleCal.currentDayString();
+    }
+    public void getCurrentDateAndEvents(String date) {
         sampleCal.printDayView();
 //        String pattern = "DD/MM/YYYY";
 //        String dateInString  = new SimpleDateFormat(pattern).format(new Date());
-        Calendar cal= Calendar.getInstance();
-        int cal_for_month = cal.get(Calendar.MONTH);
-        int cal_for_year = cal.get(Calendar.YEAR);
-        int cal_for_day = cal.get(Calendar.DAY_OF_MONTH);
-        System.out.println(cal_for_day+"/"+cal_for_month+"/"+cal_for_year);
+        sampleCal.printEventsFromMap(date);
 
     }
     public void printMainCalender(){
@@ -55,6 +53,7 @@ public class Console {
     }
 
     public String getPNMChooser() {
+        System.out.println("[P]revious or [N]ext or [M]ain menu ?");
         return optionSelection("[P]revious or [N]ext or [M]ain menu ?");
     }
 
@@ -121,5 +120,9 @@ public class Console {
 
     public void addEventToMap(Event newEvent) {
         sampleCal.addEventToMap(newEvent);
+    }
+
+    public void printEventList() {
+        sampleCal.printEventList();
     }
 }

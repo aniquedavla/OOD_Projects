@@ -13,27 +13,47 @@ public class MyCalendarTester {
             calendarConsole.printMainCalender();
             mainI = calendarConsole.mainMenu();
             switch (mainI) {
-                case "L":
-                case "V":
+                case "L":;
+                case "l":
+                case "V":;
+                case "v":
                     if(calendarConsole.viewChooser().equals("D")){
-                        calendarConsole.getCurrentDateAndEvents();
+                        calendarConsole.getCurrentDateAndEvents(calendarConsole.getCurrentDate());
                         while(true){
                             switch (calendarConsole.getPNMChooser()){
                                 case "P":
                                 case "N":
                                 case "M":break;
                             }
+                            break;
                         }
                     }else{
                         System.out.println("Month View Chosen");
                     }
+                    break;
                 case "C":
-                         Event newEvent = calendarConsole.eventSelection();
+                        Event newEvent = calendarConsole.eventSelection();
                         calendarConsole.addEventToMap(newEvent);
                         System.out.println(newEvent.getTitle());
-                case "G":
-                case "E":
-                case "D":
+                        break;
+                case "G":;
+                case "g":
+                        String dateTOGo = calendarConsole.eventDateSelection();
+                        calendarConsole.getCurrentDateAndEvents(dateTOGo);
+                        while(true){
+                            switch (calendarConsole.getPNMChooser()){
+                                case "P":
+                                case "N":
+                                case "M":break;
+                            }
+                            break;
+                        }
+                case "E":;
+                case "e":
+                        calendarConsole.printEventList();
+                        break;
+                case "D":;
+                case "d":
                 case "Q":
             }
         }
