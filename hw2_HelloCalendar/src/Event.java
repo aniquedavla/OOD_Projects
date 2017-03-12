@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 /**
  * Created by aniquedavla on 3/11/17.
  */
-public class Event {
+public class Event implements Serializable {
 
     private String eventTitle;
     private String date;

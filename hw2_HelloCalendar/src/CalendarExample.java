@@ -1,6 +1,8 @@
 /**
  * Created by aniquedavla on 3/11/17.
  */
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 enum DAYS
@@ -16,24 +18,22 @@ enum MONTHS
 /**
  *
  */
-public class CalendarExample
+public class CalendarExample implements Serializable
 {
-    private MONTHS[] arrayOfMonths;
-    private DAYS[] arrayOfDays;
+    static MONTHS[] arrayOfMonths = MONTHS.values();
+    static DAYS[] arrayOfDays = DAYS.values();
     private GregorianCalendar cal;
     private HashMap<String, ArrayList<Event>> eventsOnDay = new HashMap<>();
 
-    public CalendarExample(){
-        cal = new GregorianCalendar(); // capture today
-         arrayOfMonths = MONTHS.values();
-         arrayOfDays = DAYS.values();
+    public CalendarExample(GregorianCalendar cal){
+        this.cal = cal; // capture today
     }
 
     /**
      * @return
      */
     public int[] currentDayArray(){
-        int currentM = cal.get(Calendar.MONTH)+1;
+        int currentM = cal.get(Calendar.MONTH);
         int currentY = cal.get(Calendar.YEAR);
         int currentD = cal.get(Calendar.DAY_OF_MONTH);
         int[] a = {currentD,currentM,currentY};
@@ -42,7 +42,7 @@ public class CalendarExample
 
     public int[] stringToArrayDate(String date){
         String[] dateArray = date.split("/");
-       int[] array = {Integer.parseInt(dateArray[0]),Integer.parseInt(dateArray[1]),Integer.parseInt(dateArray[2])};
+        int[] array = {Integer.parseInt(dateArray[0]),Integer.parseInt(dateArray[1]),Integer.parseInt(dateArray[2])};
         return array;
     }
     /**
@@ -136,22 +136,25 @@ public class CalendarExample
     /**
      * @param dateKey
      */
-    public void printEventsFromMap(String dateKey){
+    public boolean printEventsFromMap(String dateKey){
         if(eventsOnDay.get(dateKey)==null){
             System.out.println("There are no events for this day: "+ dateKey);
-        }else {
+            return false;
+        }else if(!eventsOnDay.get(dateKey).isEmpty()) {
             for (int i = 0; i < eventsOnDay.get(dateKey).size(); i++) {
                 MONTHS[] arrayOfMonths = MONTHS.values();
                 DAYS[] arrayOfDays = DAYS.values();
                 Calendar mycal = new GregorianCalendar(
                         2017, eventsOnDay.get(dateKey).get(i).getMM(),eventsOnDay.get(dateKey).get(i).getDD());
+
+                Event foundEvent = eventsOnDay.get(dateKey).get(i);
+                //print the day
                 System.out.println(
-                        arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] +", " +
-                        arrayOfMonths[mycal.get(Calendar.MONTH)]+" "+
-                        eventsOnDay.get(dateKey).get(i).getDD()+", "+
-                        eventsOnDay.get(dateKey).get(i).getYYYY());
-                System.out.println((getArrayDateToString(currentDayArray())));
-                System.out.print(
+                        arrayOfMonths[foundEvent.getMM() - 1] + " "+
+                        foundEvent.getDD()+", "+foundEvent.getYYYY()
+                );
+                //print event
+                System.out.println(
                         eventsOnDay.get(dateKey).get(i).getTitle()+" "+
                         eventsOnDay.get(dateKey).get(i).getStartTimeHR() + ":" +
                         eventsOnDay.get(dateKey).get(i).getStartTimeMN() + " - " +
@@ -159,6 +162,7 @@ public class CalendarExample
                         eventsOnDay.get(dateKey).get(i).getEndTimeMN() + " " + "\n");
             }
         }
+        return true;
     }
 
     public void printEventList() {
@@ -210,5 +214,64 @@ public class CalendarExample
             currentMonth = currentM + "";
         }
         return  currentD+"/"+currentMonth+"/"+currentY;
+    }
+    public void eventListMonth(Calendar newCal){
+        for(String key: eventsOnDay.keySet()){
+            for(int i=0;i< eventsOnDay.get(key).size();i++) {
+                MONTHS[] arrayOfMonths = MONTHS.values();
+                DAYS[] arrayOfDays = DAYS.values();
+                //to get the day name
+                if(eventsOnDay.get(key).get(i).getMM() == (newCal.get(Calendar.MONTH)+1)) {
+                    System.out.println(key);
+                    Calendar mycal = new GregorianCalendar(2017, eventsOnDay.get(key).get(i).getMM(),
+                            eventsOnDay.get(key).get(i).getDD());
+                    System.out.println(eventsOnDay.get(key).get(i).getYYYY());
+                    System.out.print(arrayOfDays[mycal.get(Calendar.DAY_OF_WEEK)] + " " +
+                            arrayOfMonths[eventsOnDay.get(key).get(i).getMM()] + " " +
+                            eventsOnDay.get(key).get(i).getDD() + " " +
+                            eventsOnDay.get(key).get(i).getStartTimeHR() + ":" +
+                            eventsOnDay.get(key).get(i).getStartTimeMN() + " - " +
+                            eventsOnDay.get(key).get(i).getEndTimeHR() + ":" +
+                            eventsOnDay.get(key).get(i).getEndTimeMN() + " " +
+                            eventsOnDay.get(key).get(i).getTitle() + "\n");
+                }
+            }
+        }
+
+    }
+    public static void printCalendar(GregorianCalendar newCal, int month) {
+
+        int currentM = month;
+        int currentY = newCal.get(Calendar.YEAR);
+        int currentD = newCal.get(Calendar.DAY_OF_MONTH);
+
+        // prints the calendar header
+        System.out.println("   " + arrayOfMonths[month] + " " + newCal.get(Calendar.YEAR));
+        System.out.println("Su Mo Tu We Th Fr Sa");
+
+        // days[i] = number of days in month i
+        int[] days = {
+                31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+        };
+
+        if(currentM == 2 && newCal.isLeapYear(currentY)){
+            days[currentM] = 29;
+        }
+
+        // starting day of the month
+        int startDay = startDayOfM(month,1,currentY);
+
+
+        // print the calendar with highlited day.
+        for (int i = 0; i < startDay; i++)
+            System.out.print("   ");
+        for (int i = 1 ; i <= days[currentM]; i++) {
+            if(i == currentD){
+                System.out.print("[" + i + "]");
+            } else {
+                System.out.printf("%2d ", i);
+            }
+            if (((i + startDay) % 7 == 0) || (i == days[currentM])) System.out.println();
+        }
     }
 }

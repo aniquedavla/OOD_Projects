@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
@@ -8,26 +9,27 @@ import java.util.*;
  */
 public class Console {
     private Scanner input;
-    private CalendarExample sampleCal;
+    CalendarExample sampleCal;
 
-    public Console(Scanner input){
-        this.sampleCal = new CalendarExample();
+    public Console(Scanner input) {
+        sampleCal = new CalendarExample(new GregorianCalendar());
         this.input = input;
     }
 
     /**
      * @return
      */
-    public String mainMenu(){
+    public String mainMenu() {
         System.out.println("");
         System.out.println("Select one of the following options:");
-        System.out.println("[L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit");
         return optionSelection("[L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit");
     }
-    String optionSelection(String options){
+
+    String optionSelection(String options) {
         String s = "";
         //? can remove, handle corner cases.
-        while(true){
+        System.out.println(options);
+        while (true) {
             String selection = input.nextLine().toUpperCase();
             if (options.contains("[" + selection + "]"))
                 return selection;
@@ -38,14 +40,13 @@ public class Console {
      * @return
      */
     public String viewChooser() {
-        System.out.println("[D]ay view or [M]view ?");
         return optionSelection("[D]ay view or [M]view ?");
     }
 
     /**
      * @return
      */
-    public int[] getCurrentDateA(){
+    public int[] getCurrentDateA() {
         return sampleCal.currentDayArray();
     }
 
@@ -57,48 +58,51 @@ public class Console {
     /**
      * @param date
      */
-    public void getCurrentDateAndEvents(String date) {
+    public boolean getCurrentDateAndEvents(String date) {
 //        String pattern = "DD/MM/YYYY";
 //        String dateInString  = new SimpleDateFormat(pattern).format(new Date());
-        sampleCal.printEventsFromMap(date);
+
+        return sampleCal.printEventsFromMap(date);
 
     }
 
     /**
      *
      */
-    public void printMainCalender(){
+    public void printMainCalender() {
         sampleCal.printCalendar();
     }
 
-    /**
-     * @return
-     */
-    public String createEventDialog() {
-        return optionSelection("[C]reate");
-    }
+//    /**
+//     * @return
+//     */
+//    public String createEventDialog() {
+//        System.out.println("[C]reate");
+//        return optionSelection("[C]reate");
+//    }
 
     public String getPNMChooser() {
-        System.out.println("[P]revious or [N]ext or [M]ain menu ?");
         return optionSelection("[P]revious or [N]ext or [M]ain menu ?");
     }
 
     String eventTileSelection() {
         return input.nextLine();
     }
-    String eventDateSelection(){
+
+    String eventDateSelection() {
         System.out.println("Enter a date of this event in this format DD/MM/YYYY [separated by / ]");
-        if(input.hasNext())
+        if (input.hasNext())
             return input.nextLine();
         else return null;
     }
+
     Event eventSelection() {
         System.out.println("Enter a title for the event:");
         String eventTitle = eventTileSelection();
         String date = eventDateSelection();
         String[] dateArray = date.split("/");
         String day = dateArray[0];
-        String month =  dateArray[1];
+        String month = dateArray[1];
         String year = dateArray[2];
         int startTimeHR = 0;
         int startTimeMN = 0;
@@ -115,21 +119,21 @@ public class Console {
             break;
         }
         System.out.println("Does this event has an end time ? enter [Y]es or [N]o");
-          while (input.hasNext()) {
+        while (input.hasNext()) {
             String in = input.nextLine().toUpperCase();
-            if(in.equals("Y")){
+            if (in.equals("Y")) {
                 endTimeFlag = true;
                 break;
-            } else if(in.equals("N")) {
+            } else if (in.equals("N")) {
                 endTimeFlag = false;
                 break;
             }
         }
-        if(endTimeFlag) {
+        if (endTimeFlag) {
             System.out.println("Enter an ending time \"HH MM\" [HH and MM separated by spaces");
-            endTimeHR=0;
-            while(endTimeHR<=startTimeHR){
-                if(input.hasNext()) {
+            endTimeHR = 0;
+            while (endTimeHR <= startTimeHR) {
+                if (input.hasNext()) {
                     if (input.hasNextInt())
                         endTimeHR = input.nextInt();
                     if (input.hasNextInt())
@@ -141,7 +145,7 @@ public class Console {
                 break;
             }
         }
-        return new Event(eventTitle,date,startTimeHR,startTimeMN,endTimeFlag,endTimeHR,endTimeMN);
+        return new Event(eventTitle, date, startTimeHR, startTimeMN, endTimeFlag, endTimeHR, endTimeMN);
     }
 
     public void addEventToMap(Event newEvent) {
@@ -153,7 +157,6 @@ public class Console {
     }
 
     public String deleteOption() {
-        System.out.println("[S]elected or [A]ll ?");
         return optionSelection("[S]elected or [A]ll ?");
     }
 
@@ -164,4 +167,5 @@ public class Console {
     public void deleteAllEvents() {
         sampleCal.deletAll();
     }
+
 }
