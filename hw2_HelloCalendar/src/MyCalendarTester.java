@@ -31,8 +31,10 @@ public class MyCalendarTester {
     public static int mainMenu(Console calendarConsole, Scanner in) {
         String mainI = "";
         int index = 0;
+        System.out.println("Console Calendar: " + "\n");
+        calendarConsole.printMainCalender();
         while(true){
-            calendarConsole.printMainCalender();
+            System.out.println("");
             mainI = calendarConsole.mainMenu();
             switch (mainI) {
                 case "L":;
@@ -41,7 +43,8 @@ public class MyCalendarTester {
                 case "v":
                         view(calendarConsole, calendarConsole.getArrayDateToString(calendarConsole.getCurrentDateA()));
                         continue;
-                case "C":
+                case "C":;
+                case "c":
                     Event newEvent = calendarConsole.eventSelection();
                     calendarConsole.addEventToMap(newEvent);
                     System.out.println(newEvent.getTitle());
@@ -49,15 +52,12 @@ public class MyCalendarTester {
                 case "G":;
                 case "g":
                     String dateTOGo = calendarConsole.eventDateSelection();
-                    boolean found = calendarConsole.getCurrentDateAndEvents(dateTOGo);
-                    while(found){
-                        view(calendarConsole,dateTOGo);
-                        break;
-                    }
+                    dayView(calendarConsole,dateTOGo);
+                    continue;
                 case "E":;
                 case "e":
                     calendarConsole.printEventList();
-                    break;
+                    continue;
                 case "D":;
                 case "d":
                     String deleteOp = calendarConsole.deleteOption();
@@ -67,6 +67,7 @@ public class MyCalendarTester {
                     }else if(deleteOp.equals("A")){
                         calendarConsole.deleteAllEvents();
                     }
+                    continue;
                 case "Q":;
                 case"q":
                     index = 6;

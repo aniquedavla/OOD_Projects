@@ -28,7 +28,7 @@ public class Console {
     String optionSelection(String options) {
         String s = "";
         //? can remove, handle corner cases.
-        System.out.println(options);
+        System.out.println(options + "\n");
         while (true) {
             String selection = input.nextLine().toUpperCase();
             if (options.contains("[" + selection + "]"))
@@ -97,6 +97,7 @@ public class Console {
     }
 
     Event eventSelection() {
+        boolean canCreateEvent = false;
         System.out.println("Enter a title for the event:");
         String eventTitle = eventTileSelection();
         String date = eventDateSelection();
@@ -126,6 +127,7 @@ public class Console {
                 break;
             } else if (in.equals("N")) {
                 endTimeFlag = false;
+                canCreateEvent = true;
                 break;
             }
         }
@@ -140,12 +142,15 @@ public class Console {
                         endTimeMN = input.nextInt();
                     if (endTimeHR < startTimeHR) {
                         System.out.println("Invalid end time. Enter a end time \"HH MM\" [separated by spaces]");
+                         canCreateEvent = false;
                     }
                 }
                 break;
             }
         }
-        return new Event(eventTitle, date, startTimeHR, startTimeMN, endTimeFlag, endTimeHR, endTimeMN);
+        if(canCreateEvent){
+           return new Event(eventTitle, date, startTimeHR, startTimeMN, endTimeFlag, endTimeHR, endTimeMN);
+        } else return null;
     }
 
     public void addEventToMap(Event newEvent) {
