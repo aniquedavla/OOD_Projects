@@ -1,3 +1,5 @@
+Console Calendar: 
+
    March 2017
 Su Mo Tu We Th Fr Sa
           1  2  3  4 
@@ -9,6 +11,7 @@ Su Mo Tu We Th Fr Sa
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 Enter a title for the event:
 Enter a date of this event in this format DD/MM/YYYY [separated by / ]
 Enter a starting time "HH MM" for the event[HH and MM separated by spaces]
@@ -18,32 +21,97 @@ Doctor's Appointment
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 Enter a date of this event in this format DD/MM/YYYY [separated by / ]
 There are no events for this day: 12/03/2017
 [P]revious or [N]ext or [M]ain menu ?
+
 There are no events for this day: 11/03/2017
 [P]revious or [N]ext or [M]ain menu ?
+
 There are no events for this day: 12/03/2017
 [P]revious or [N]ext or [M]ain menu ?
 
 
+
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 Enter a date of this event in this format DD/MM/YYYY [separated by / ]
 March 13, 2017
 Doctor's Appointment 12:40 - 0:0 
 
 [P]revious or [N]ext or [M]ain menu ?
+
 There are no events for this day: 12/03/2017
 [P]revious or [N]ext or [M]ain menu ?
+
 March 13, 2017
 Doctor's Appointment 12:40 - 0:0 
 
 [P]revious or [N]ext or [M]ain menu ?
 
 
+
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
+[D]ay view or [M]view ?
+
+There are no events for this day: 12/02/2017
+[P]revious or [N]ext or [M]ain menu ?
+
+There are no events for this day: 11/02/2017
+[P]revious or [N]ext or [M]ain menu ?
+
+There are no events for this day: 12/02/2017
+[P]revious or [N]ext or [M]ain menu ?
+
+
+
+Select one of the following options:
+[L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
+[D]ay view or [M]view ?
+
+   March 2017
+Su Mo Tu We Th Fr Sa
+          1  2  3  4 
+ 5  6  7  8  9 10 11 
+[12]13 14 15 16 17 18 
+19 20 21 22 23 24 25 
+26 27 28 29 30 31 
+13/03/2017
+2017
+Fri Apr 13 12:40 - 0:0 Doctor's Appointment
+[P]revious or [N]ext or [M]ain menu ?
+
+   Apr 2017
+Su Mo Tu We Th Fr Sa
+         [1] 2  3  4 
+ 5  6  7  8  9 10 11 
+12 13 14 15 16 17 18 
+19 20 21 22 23 24 25 
+26 27 28 29 30 
+[P]revious or [N]ext or [M]ain menu ?
+
+   March 2017
+Su Mo Tu We Th Fr Sa
+         [1] 2  3  4 
+ 5  6  7  8  9 10 11 
+12 13 14 15 16 17 18 
+19 20 21 22 23 24 25 
+26 27 28 29 30 31 
+13/03/2017
+2017
+Fri Apr 13 12:40 - 0:0 Doctor's Appointment
+[P]revious or [N]ext or [M]ain menu ?
+
+
+
+Select one of the following options:
+[L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 All Events scheduled:
 13/03/2017
 2017
@@ -52,29 +120,37 @@ Fri Apr 13 12:40 - 0:0 Doctor's Appointment
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 [S]elected or [A]ll ?
+
 Enter a date of this event in this format DD/MM/YYYY [separated by / ]
 Event does not exist or wrong date. Try Again.
 
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 [S]elected or [A]ll ?
+
 Enter a date of this event in this format DD/MM/YYYY [separated by / ]
 Event for 13/03/2017 succesfully deleted.
 
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 [S]elected or [A]ll ?
+
 No events to delete.
 
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 Calendar is empty.
 
 
 Select one of the following options:
 [L]oad   [V]iew by  [C]reate, [G]o to [E]vent list [D]elete  [Q]uit
+
 Calendar Exited!

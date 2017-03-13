@@ -5,10 +5,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
+//enu to store DAY type
+
 enum DAYS
 {
     Sun, Mon, Tue, Wed, Thur, Fri, Sat ;
 }
+
+//enum to model Month tupes
 enum MONTHS
 {
     Jan, Feb, March, Apr, May, June, July, Aug, Sep, Oct, Nov, Dec;
@@ -16,20 +20,26 @@ enum MONTHS
 
 
 /**
- *
+ *Calendar Example holds a hash map of events mapped to their dates, it creats and print calendar and all its operations
  */
-public class CalendarExample implements Serializable {
+public class CalendarExample implements Serializable{
     static MONTHS[] arrayOfMonths = MONTHS.values();
     static DAYS[] arrayOfDays = DAYS.values();
     private GregorianCalendar cal;
     private HashMap<String, ArrayList<Event>> eventsOnDay = new HashMap<>();
 
+
+    /**
+     * Constructor to initialize calendar
+     * @param cal a Caledar date to initialize it with
+     */
     public CalendarExample(GregorianCalendar cal) {
         this.cal = cal; // capture today
     }
 
     /**
-     * @return
+     * currentArray is a method to find current day, month and year.
+     * @return an array of current date
      */
     public int[] currentDayArray() {
         int currentM = cal.get(Calendar.MONTH);
@@ -39,6 +49,11 @@ public class CalendarExample implements Serializable {
         return a;
     }
 
+    /**
+     * A date array from string
+     * @param date a string date
+     * @return an array of day, month , and year
+     */
     public int[] stringToArrayDate(String date) {
         String[] dateArray = date.split("/");
         int[] array = {Integer.parseInt(dateArray[0]), Integer.parseInt(dateArray[1]), Integer.parseInt(dateArray[2])};
@@ -46,7 +61,7 @@ public class CalendarExample implements Serializable {
     }
 
     /**
-     *
+     *Prints the current Day view
      */
     public void printDayView() {
         int currentM = cal.get(Calendar.MONTH);
@@ -62,7 +77,7 @@ public class CalendarExample implements Serializable {
     }
 
     /**
-     *
+     *Prints the current Calendar with day highlight
      */
     public void printCalendar() {
         GregorianCalendar temp = new GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 1);
@@ -102,6 +117,7 @@ public class CalendarExample implements Serializable {
     }
 
     /**
+     *
      * @param month
      * @param day
      * @param year
