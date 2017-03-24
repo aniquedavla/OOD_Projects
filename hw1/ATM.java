@@ -43,8 +43,7 @@ public class ATM {
             return true;
         } else{
             return false;
-        }
-    }
+w    }
 
     public void returnCard(){
         System.out.println("Card Returned");

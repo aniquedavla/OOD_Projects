@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ConceptsPractise/ConceptsTest.iml" filepath="$PROJECT_DIR$/ConceptsPractise/ConceptsTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HW3_clock&amp;patterns/HW3_clock&amp;patterns.iml" filepath="$PROJECT_DIR$/HW3_clock&amp;patterns/HW3_clock&amp;patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Projects.iml" filepath="$PROJECT_DIR$/.idea/Projects.iml" />
     </modules>
   </component>

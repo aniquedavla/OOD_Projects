@@ -1,5 +1,5 @@
 
-//Test scope of inner classes, static and non static. 
+//Test scope of static/nonstatic inner classes, and its static and non static props.
 public class Outer
 { private int i ;
     private static int s;
@@ -9,7 +9,7 @@ public class Outer
         s++;
 
         Inner inner = new Inner();
-        inner.inner_var++;
+        inner.inner_var++;w
         inner.innerMethod();
 
         SNClass snclass = new SNClass();
