@@ -35,20 +35,16 @@ public class AnimationTester {
 
         final JLabel label3 = new JLabel(icon3);
 
-        //frame.setLayout(new FlowLayout());
         frame.add(label1, BorderLayout.NORTH);
         frame.add(label2, BorderLayout.CENTER);
         frame.add(label3, BorderLayout.SOUTH);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
+        int x = 1;
         final int DELAY1 = 300;
         // Milliseconds between timer ticks
         Timer t = new Timer(DELAY1, new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                shape1.translate(1, 0);
+                shape1.translate(x, 0);
                 label1.repaint();
             }
         });
@@ -56,7 +52,7 @@ public class AnimationTester {
         final int DELAY2 = 50;
         Timer t2 = new Timer(DELAY2, new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                shape2.translate(1, 0);
+                shape2.translate(x, 0);
                 label2.repaint();
             }
         });
@@ -64,10 +60,16 @@ public class AnimationTester {
         final int DELAY3 = 30;
         Timer t3 = new Timer(DELAY3, new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                shape3.translate(1, 0);
+                shape3.translate(x, 0);
                 label3.repaint();
             }
         });
+
         t3.start();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
     }
+
 }
