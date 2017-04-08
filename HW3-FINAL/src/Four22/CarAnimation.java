@@ -26,13 +26,12 @@ public class CarAnimation extends JFrame
         public int delay    = 10;    //milliseconds
         MyJPanel()
         {
-            ActionListener counter =
-            Timer  = new Timer(delay, new ActionListener() {
+            Timer timer = new Timer(delay, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 repaint();
                 x++;
             }});
-            t.start();
+            timer.start();
         }
 
         public void paintComponent(Graphics g)

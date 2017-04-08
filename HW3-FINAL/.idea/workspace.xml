@@ -64,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CipherDecrypt.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CipherDecrypt.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Five12/CipherDecrypt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -74,15 +74,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarAnimation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CarAnimation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Four22/CarAnimation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.6241901">
+              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1514#1515#0" expanded="true" />
-                <element signature="e#1549#1550#0" expanded="true" />
+                <element signature="e#1486#1487#0" expanded="true" />
+                <element signature="e#1521#1522#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,12 +152,12 @@
         <option value="$PROJECT_DIR$/src/Four18/ClockIcon.java" />
         <option value="$PROJECT_DIR$/src/Four22/CarShape.java" />
         <option value="$PROJECT_DIR$/src/Four22/MoveableShape.java" />
-        <option value="$PROJECT_DIR$/src/Four22/CarAnimation.java" />
         <option value="$PROJECT_DIR$/src/Four22/AnimationTester.java" />
         <option value="$PROJECT_DIR$/src/Five2/BarFrame.java" />
         <option value="$PROJECT_DIR$/src/Five4/Car.java" />
         <option value="$PROJECT_DIR$/src/Five8/Connection.java" />
         <option value="$PROJECT_DIR$/src/Five12/CipherDecrypt.java" />
+        <option value="$PROJECT_DIR$/src/Four22/CarAnimation.java" />
       </list>
     </option>
   </component>
@@ -239,7 +239,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Five12" />
+              <option name="myItemId" value="Four22" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -804,18 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Four22/CarAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-            <element signature="e#1549#1550#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Four22/AnimationTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -855,6 +843,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Four22/CarAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6241901">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="e#1521#1522#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
