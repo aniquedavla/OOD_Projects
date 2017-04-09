@@ -2,7 +2,7 @@ package Five8;
 
 /**
   Run a test of the mail system using two telephones to access the system
-@author MD ISLAM
+@author aniquedavla
 */
 public class MailSystemTester
 {

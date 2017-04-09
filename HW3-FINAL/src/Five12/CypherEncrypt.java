@@ -6,7 +6,7 @@ package Five12;/*
 
 /**
  *
- * @author MD ISLAM
+ * @author aniquedavla
  */
 public interface CypherEncrypt {
 

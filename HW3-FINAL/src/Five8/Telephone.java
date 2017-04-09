@@ -2,7 +2,7 @@ package Five8;
 
 /**
  * Program to display two telephone handsets with scroll bars
- * @author MD ISLAM
+ * @author aniquedavla
  */
 import java.awt.*;
 import java.awt.event.*;

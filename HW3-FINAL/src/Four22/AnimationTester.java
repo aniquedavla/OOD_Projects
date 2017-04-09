@@ -39,12 +39,11 @@ public class AnimationTester {
         frame.add(label2, BorderLayout.CENTER);
         frame.add(label3, BorderLayout.SOUTH);
 
-        int x = 1;
         final int DELAY1 = 300;
         // Milliseconds between timer ticks
         Timer t = new Timer(DELAY1, new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                shape1.translate(x, 0);
+                shape1.translate(1, 0);
                 label1.repaint();
             }
         });
@@ -52,18 +51,22 @@ public class AnimationTester {
         final int DELAY2 = 50;
         Timer t2 = new Timer(DELAY2, new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                shape2.translate(x, 0);
+                shape2.translate(1, 0);
                 label2.repaint();
             }
         });
         t2.start();
         final int DELAY3 = 30;
         Timer t3 = new Timer(DELAY3, new ActionListener() {
+            int x = 1;
             public void actionPerformed(ActionEvent event) {
+                //if(frame.getWidth()){
+                   // x = 0-label3.getWidth();
+                //}
                 shape3.translate(x, 0);
                 label3.repaint();
-            }
-        });
+
+            }});
 
         t3.start();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

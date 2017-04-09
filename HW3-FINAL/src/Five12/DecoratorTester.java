@@ -10,7 +10,7 @@ import java.io.Writer;
 
 /** 
    Encrypts and decrypt messages using Caesar Cypher
-   @author MD ISLAM
+   @author aniquedavla
 */
  class DecoratorTester
 {
@@ -20,10 +20,10 @@ import java.io.Writer;
    */
    public static void main(String[] args) throws IOException
    {
-	  System.out.println("Encrypting: ");
-      EncryptingWriter e = new EncryptingWriter(new FileWriter("test.out"));
-      e.write("abcdefghijklmnopqrstuvwxyz", 0, 26);
-      PrintWriter w = new PrintWriter(e, true); 
+	  System.out.println("Encrypting started: ");
+      EncryptingWriter encrip = new EncryptingWriter(new FileWriter("test.out"));
+      encrip.write("abcdefghijklmnopqrstuvwxyz", 0, 26);
+      PrintWriter w = new PrintWriter(encrip, true);
       w.println("abcdefghijkl2mnopqrstuvwxyz");
       w.println("ABCDEFGHIJKL2MNOPQRSTUVWXYZ");
 

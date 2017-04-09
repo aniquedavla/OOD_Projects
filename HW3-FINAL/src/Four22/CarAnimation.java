@@ -47,7 +47,7 @@ public class CarAnimation extends JFrame
             }
             if(x==getWidth())
             {
-                x=0-img.getWidth(null);
+                x=0 - img.getWidth(null);
             }
 
         }

@@ -4,7 +4,7 @@ import java.io.Reader;
 import java.io.IOException;
 
 /** 
-   A decorator class for decrypting text after reading it.
+   DecryptingReader decrypts text after reading it.
 */
 public class DecryptingReader extends Reader implements CipherDecrypt
 {
@@ -12,7 +12,7 @@ public class DecryptingReader extends Reader implements CipherDecrypt
 	static final int ALPHABET_SIZE = 26;
         private Reader reader;
    /** 
-      Construct an decrypting reader that decorates a given reader
+      Initializes an decrypting reader that decorates a given reader
       @param reader the reader to decorate
    */
    public DecryptingReader(Reader reader)
