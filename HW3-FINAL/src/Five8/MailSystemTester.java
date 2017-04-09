@@ -1,17 +1,19 @@
 package Five8;
 
 /**
-  Run a test of the mail system using two telephones to access the system
-@author aniquedavla
+  MailSystemTester tests accessing mail system with two telephones
+ * Created by aniquedavla on 4/8/17.
 */
 public class MailSystemTester
 {
+   private static int MAILBOX_NUM = 20;
+
    /**
      Creates two phones and connects them to the system.
    */
    public static void main(String[] args)
    {
-      MailSystem system = new MailSystem(MAILBOX_COUNT);
+      MailSystem system = new MailSystem(MAILBOX_NUM);
 
       Telephone p1 = new Telephone();
       Telephone p2 = new Telephone();
@@ -21,5 +23,4 @@ public class MailSystemTester
       p2.run(c2);
    }
 
-   private static int MAILBOX_COUNT = 20;
 }

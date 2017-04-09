@@ -6,7 +6,7 @@ import javax.swing.*;
 
 /**
  * AnimationTester implements an animation that moves a car shape.
- * @author aniquedavla
+ * Created by aniquedavla on 4/8/17.
  */
 public class AnimationTester {
 
@@ -14,61 +14,31 @@ public class AnimationTester {
     private static final int ICON_HEIGHT = 100;
     private static final int CAR_WIDTH = 100;
 
+    /**
+     * main tester for reapearing Animation.
+     * @param args
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
 
-        final MoveableShape shape1 = new CarShape(0, 0, CAR_WIDTH);
+        final MoveableShape carShape = new CarShape(0, 0, CAR_WIDTH);
 
-        ShapeIcon icon1 = new ShapeIcon(shape1, ICON_WIDTH, ICON_HEIGHT);
+        ShapeIcon carIcon = new ShapeIcon(carShape, ICON_WIDTH, ICON_HEIGHT);
 
-        final JLabel label1 = new JLabel(icon1);
+        final JLabel label = new JLabel(carIcon);
 
-        final MoveableShape shape2 = new CarShape(0, 0, CAR_WIDTH);
+        frame.add(label, BorderLayout.NORTH);
 
-        ShapeIcon icon2 = new ShapeIcon(shape2, ICON_WIDTH, ICON_HEIGHT);
-
-        final JLabel label2 = new JLabel(icon2);
-
-        final MoveableShape shape3 = new CarShape(0, 0, CAR_WIDTH);
-
-        ShapeIcon icon3 = new ShapeIcon(shape3, ICON_WIDTH, ICON_HEIGHT);
-
-        final JLabel label3 = new JLabel(icon3);
-
-        frame.add(label1, BorderLayout.NORTH);
-        frame.add(label2, BorderLayout.CENTER);
-        frame.add(label3, BorderLayout.SOUTH);
-
-        final int DELAY1 = 300;
-        // Milliseconds between timer ticks
-        Timer t = new Timer(DELAY1, new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                shape1.translate(1, 0);
-                label1.repaint();
-            }
-        });
-        t.start();
-        final int DELAY2 = 50;
-        Timer t2 = new Timer(DELAY2, new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-                shape2.translate(1, 0);
-                label2.repaint();
-            }
-        });
-        t2.start();
-        final int DELAY3 = 30;
-        Timer t3 = new Timer(DELAY3, new ActionListener() {
+        final int DELAY = 10;
+        Timer timer = new Timer(DELAY, new ActionListener() {
+            int frameChecker = 1;
             int x = 1;
             public void actionPerformed(ActionEvent event) {
-                //if(frame.getWidth()){
-                   // x = 0-label3.getWidth();
-                //}
-                shape3.translate(x, 0);
-                label3.repaint();
-
+               carShape.translate(3, 0, frame.getWidth());
+                label.repaint();
             }});
 
-        t3.start();
+        timer.start();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

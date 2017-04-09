@@ -6,9 +6,9 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 /**
- * Program to test the Model/View/Controller architecture
+ * MVCTester tests the Model/View/Controller architecture
  *
- * @author MD ISLAM
+ * Created by aniquedavla on 4/8/17.
  */
 public class MVCTester {
 
@@ -17,8 +17,7 @@ public class MVCTester {
         final Model stringLines = new Model();
 
         /**
-         * This is the view part.
-         * Here is where the view takes place.
+         * View
          */
         JFrame frame = new JFrame();
         final JTextField userInput = new JTextField();
@@ -32,7 +31,7 @@ public class MVCTester {
         stringLines.addChangeListener(listener);
 
         /**
-         * This is the controller part. This part takes user input.
+         * Controller that takes in user input.
          */
         JButton addButton = new JButton("Add");
         addButton.addActionListener(new ActionListener() {

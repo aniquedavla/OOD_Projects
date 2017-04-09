@@ -78,7 +78,9 @@ public class ClockIcon implements Icon {
 
         g2D.setColor(Color.RED);
         g2D.draw(hourHead);
+        g2D.setColor(Color.BLACK);
         g2D.draw(minuteHead);
+        g2D.setColor(Color.GREEN);
         g2D.draw(secondHead);
 
     }

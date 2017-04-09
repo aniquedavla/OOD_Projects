@@ -30,10 +30,17 @@ public class CarShape implements MoveableShape {
      *
      * @param dx move car in the x direction
      * @param dy move car in the y direction
+     * @param frameWidth the width of the frame.
      */
-    public void translate(int dx, int dy) {
-        x += dx;
-        y += dy;
+    public void translate(int dx, int dy, int frameWidth) {
+        //make the animation reapper once it goes out of the frame.
+        if(x > frameWidth)
+        {
+            x = x - (frameWidth);
+        } else{
+            x += dx;
+            y += dy;
+        }
     }
 
     /**

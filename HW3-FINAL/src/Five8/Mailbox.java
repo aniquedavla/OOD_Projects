@@ -1,7 +1,7 @@
 package Five8;
 
 /**
-   A mailbox contains messages that can be listed, kept or discarded.
+   Mailbox contains messages that can be listed, kept or discarded.
 */
 public class Mailbox
 {

@@ -5,18 +5,18 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * Model class consisting of stringData and corresponding listeners
+ * Model class consists of data and corresponding listeners
  */
 public class Model {
 
-    private ArrayList<String> stringData;
+    private ArrayList<String> data;
     private ArrayList<ChangeListener> listeners;
 
     /**
      * Constructor to initialize stringData and listeners
      */
     public Model() {
-        stringData = new ArrayList<String>();
+        data = new ArrayList<String>();
         listeners = new ArrayList<ChangeListener>();
     }
 
@@ -37,7 +37,7 @@ public class Model {
     public String format() {
         String string = "";
         String newLine = "\n";
-        for (String s : stringData) {
+        for (String s : data) {
             string += s + newLine;
         }
         return string;
@@ -49,7 +49,7 @@ public class Model {
      * @param string the string to add
      */
     public void addString(String string) {
-        stringData.add(string);
+        data.add(string);
         ChangeEvent event = new ChangeEvent(this);
         for (ChangeListener listener : listeners) {
             listener.stateChanged(event);

@@ -2,14 +2,14 @@ package Five8;
 
 /**
  * Program to display two telephone handsets with scroll bars
- * @author aniquedavla
+ * Created by aniquedavla on 4/8/17.
  */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Presents a phone GUI for the voice mail system. When multiple Telephones are
+ * Telephone has a phone GUI for the voice mail system. When multiple Telephones are
  * created, closing the last one will exit the program.
  */
 public class Telephone {

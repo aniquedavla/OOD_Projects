@@ -5,8 +5,8 @@ package Five12;/*
  */
 
 /**
- *
- * @author aniquedavla
+ *CypherEncrupt enforces encrypt algorithm
+ * Created by aniquedavla on 4/8/17.
  */
 public interface CypherEncrypt {
 
